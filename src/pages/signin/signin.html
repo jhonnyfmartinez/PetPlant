@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div text-center>
+    <img src="assets/img/avatar.png" />
+  </div>
+
+	<br>
+
+	<form [formGroup]="regForm" (submit)="onReg(regForm.controls,regForm.valid)" novalidate>
+
+		<ion-item>
+			<ion-label floating>Usuario</ion-label>
+			<ion-input type="text" formControlName="user"></ion-input>
+		</ion-item>
+
+    <span *ngIf="regForm.controls.user.errors &&
+      regForm.controls.user.touched" class="error-message">
+      Tu nombre de usuario debe contener mínimo 6 caracteres
+    </span>
+
+		<ion-item>
+			<ion-label floating>Contraseña</ion-label>
+			<ion-input type="password" formControlName="pass"></ion-input>
+		</ion-item>
+
+    <span *ngIf="regForm.controls.pass.errors &&
+      regForm.controls.pass.touched" class="error-message">
+      La contraseña debe contener mínimo 6 caracteres
+    </span>
+
+    <ion-item>
+			<ion-label floating>Confirmar contraseña</ion-label>
+			<ion-input type="password" formControlName="Cpass"></ion-input>
+		</ion-item>
+
+    <span *ngIf="regForm.controls.Cpass.errors?.notEquivalent && regForm.controls.Cpass.touched" class="error-message">
+      Las contraseñas no coinciden.
+    </span>
+
+		<ion-item>
+			<ion-label floating>Correo</ion-label>
+			<ion-input type="email" formControlName="email"></ion-input>
+		</ion-item>
+
+    <span *ngIf="regForm.controls.email.errors &&
+      regForm.controls.email.touched" class="error-message">
+      Debes digitar una dirección de correo electrónico válida
+    </span>
+
+    <ion-item>
+      <ion-label><a>Acepto términos y condiciones</a></ion-label>
+      <ion-checkbox color="primary" formControlName="legals"></ion-checkbox>
+    </ion-item>
+
+    <br>
+  	<!--<button ion-button block primary type="submit" [disabled]="!regForm.valid ||
+      !regForm.controls.legals.value">
+      Registrar Usuario
+    </button>-->
+
+    <button ion-button block primary type="submit" >
+      Registrar Usuario
+    </button>
+	</form>
+
+</ion-content>

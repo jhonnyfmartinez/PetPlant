@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>
+      PetPlant
+    </ion-title>
+    <br>
+    <div text-center>
+      <img item-right class="icon-toolbar" src="assets/img/petplanticon.png" class="headerImg">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="authForm" (submit)="onLogin()" novalidate>
+    <ion-item>
+			<ion-label floating>
+				Usuario
+			</ion-label>
+			<ion-input type="text" formControlName="user"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>
+				Contraseña
+			</ion-label>
+			<ion-input type="password" formControlName="pass"></ion-input>
+		</ion-item>
+    <ion-fab center middle style="top: 70%">
+      <button ion-fab color="primary" [disabled]="!authForm.valid" type="submit">
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      </button>
+    </ion-fab>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <button class="btn-registro" primary ion-button full (click)="onReg()">Registrarse</button>
+</ion-footer>

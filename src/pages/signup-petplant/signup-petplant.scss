@@ -1,0 +1,49 @@
+page-signup-petplant {
+  .col-container {
+    padding: 0;
+    text-align: center;
+  }
+
+  .logo-takePhoto {
+    height: 60%;
+    margin-top: 30%;
+    max-height: 100%;
+    width: auto;
+  }
+
+  .im-registro-planta {
+    height: 90%;
+    max-height: 100%;
+    width: auto;
+  }
+
+  #arrowcontainer {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+
+  #arrow {
+    color: map-get($colors, primary);
+    font-size: 3em;
+    text-align: center;
+  }
+  //Action sheet styles
+  .action-sheets-basic-page {
+    .ion-md-share {
+      color: #ED4248;
+    }
+
+    .ion-md-arrow-dropright-circle {
+      color: #508AE4;
+    }
+
+    .ion-md-heart-outline {
+      color: #31D55F;
+    }
+
+    .action-sheet-cancel ion-icon,
+    .action-sheet-destructive ion-icon {
+      color: #757575;
+    }
+  }
+}

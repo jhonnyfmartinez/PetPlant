@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Registra tu PetPlant</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <br>
+
+  <ion-row>
+    <ion-col class="col-container" col-5>
+      <img [src]="imagenPlanta" class="logo-takePhoto" />
+    </ion-col>
+    <ion-col class="col-container" id="arrowcontainer" col-2>
+      <ion-icon name="arrow-round-forward" id="arrow"></ion-icon>
+    </ion-col>
+    <ion-col class="col-container" col-5>
+      <img class="imagen-reg-planta" src="assets/img/regicon.png" class="im-registro-planta" />
+    </ion-col>
+  </ion-row>
+
+  <div text-center>
+    <button ion-button outline round icon-left (click)="chooseOption()">
+      <ion-icon name="camera"></ion-icon>
+      Toma una foto de tu planta!
+    </button>
+  </div>
+
+  <h4 text-center>Información de tu planta</h4>
+
+  <form [formGroup]="plantForm" (submit)="onRegisterPlanta()" novalidate>
+
+    <ion-item>
+  		<ion-label>Nombre de tu Planta</ion-label>
+  		<ion-input formControlName="name" type="text"></ion-input>
+  	</ion-item>
+
+  	<ion-item>
+  		<ion-label fixed>Tipo</ion-label>
+  		<ion-select formControlName="tipo" cancelText="Cancelar" okText="Seleccionar">
+  			<ion-option value="Margarita" checked="true">Margarita</ion-option>
+  			<ion-option value="Tulipan">Tulipan</ion-option>
+  			<ion-option value="Rosa">Rosa</ion-option>
+  			<ion-option value="Cannabis">Cannabis</ion-option>
+  			<ion-option value="Azucenas">Azucenas</ion-option>
+  			<ion-option value="Claveles">Claveles</ion-option>
+  			<ion-option value="Gerberas">Gerberas</ion-option>
+  			<ion-option value="Iris">Iris</ion-option>
+  			<ion-option value="Anémonas">Anémonas</ion-option>
+  		</ion-select>
+  	</ion-item>
+
+  	<ion-item>
+  		<ion-label fixed>Genero</ion-label>
+  		<ion-select formControlName="genero" cancelText="Cancelar" okText="Seleccionar">
+  			<ion-option value="Femenino" checked="true">Femenino</ion-option>
+  			<ion-option value="Masculino">Masculino</ion-option>
+  		</ion-select>
+  	</ion-item>
+  	<br>
+  	<button class="btn-registro" primary type="submit" ion-button full>Registrar Planta</button>
+  </form>
+
+</ion-content>

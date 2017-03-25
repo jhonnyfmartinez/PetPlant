@@ -1,0 +1,26 @@
+page-home {
+  ion-navbar{
+
+    height: 20em;
+
+    .toolbar-title{
+      font-size: 5rem;
+    }
+
+  }
+  .headerImg{
+      height: auto;
+      width: 20%;
+  }
+
+  .logo-login{
+      height: 70px;
+      margin-left: 9.2em;
+      margin-top: 6em;
+      width: 70px;
+  }
+
+  .btn-registro{
+    margin: 0px;
+  }
+}
