@@ -37,7 +37,7 @@ export class SigninPage {
     this.loading = this.loadingCtrl.create({dismissOnPageChange:true});
     this.loading.present();
     this.auth.signUp(this.regForm.controls).then(()=>{
-      this.navCtrl.push(SignupPetplantPage,{user:this.regForm.controls.user.value});
+      this.navCtrl.setRoot(SignupPetplantPage,{user:this.regForm.controls.user.value});
     }).catch(err=>{
       let alert = this.alertCtrl.create({
         title: 'Error de registro',

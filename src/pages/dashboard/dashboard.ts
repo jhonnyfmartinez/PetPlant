@@ -1,22 +1,47 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Tabs } from 'ionic-angular';
 
-/*
-  Generated class for the Dashboard page.
+import { HomePage } from '../../pages/home/home';
+import { ProfilePage } from '../../pages/profile/profile';
+import { SearchPage } from '../../pages/search/search';
+import { NotificationsPage } from '../../pages/notifications/notifications';
+import { SettingsPage } from '../../pages/settings/settings';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+import { Auth } from '../../providers/auth.provider';
+
 @Component({
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html'
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  @ViewChild('tabs') tabRef: Tabs;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+  tab1Root: any = ProfilePage;
+  tab2Root: any = SearchPage;
+  tab3Root: any = NotificationsPage;
+  tab4Root: any = SettingsPage;
+
+  nav_tittle:String = "PetPlant";
+
+  username: String;
+  img: String;
+  user: String;
+  objectLogin;
+
+  constructor(public navCtrl: NavController, private params: NavParams,
+    public auth: Auth) {
+
+    this.objectLogin = this.params.data;
+
+  }
+
+  tabChange(){
+    console.log(this.tabRef.getSelected());
+  }
+
+  logOut() {
+    this.auth.logOut().then(()=>this.navCtrl.setRoot(HomePage));
   }
 
 }

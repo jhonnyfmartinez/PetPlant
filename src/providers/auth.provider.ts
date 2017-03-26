@@ -46,4 +46,16 @@ export class Auth {
     });
   }
 
+  logOut(){
+    return new Promise<any>((resolve,reject)=>{
+      this.nativeStorage.remove('userKey').then(()=>{
+        resolve();
+      }).catch(error=>reject(error));
+    });
+  }
+
+  getUserKey(){
+    return this.nativeStorage.getItem('userKey');
+  }
+
 }
