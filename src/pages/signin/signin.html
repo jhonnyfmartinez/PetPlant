@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title text-center>Registro</ion-title>
+    <ion-title>Registro</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,8 +11,6 @@
   <div text-center>
     <img src="assets/img/avatar.png" />
   </div>
-
-	<br>
 
 	<form [formGroup]="regForm" (submit)="onReg(regForm.controls,regForm.valid)" novalidate>
 

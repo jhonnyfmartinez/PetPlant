@@ -1,12 +1,19 @@
 page-signup-petplant {
+
   .col-container {
     padding: 0;
     text-align: center;
+
+    ion-avatar{
+      padding-top: 20%;
+      padding-bottom: 20%;
+      img{
+        border-radius: 50%;
+      }
+    }
   }
 
   .logo-takePhoto {
-    height: 60%;
-    margin-top: 30%;
     max-height: 100%;
     width: auto;
   }
@@ -27,23 +34,5 @@ page-signup-petplant {
     font-size: 3em;
     text-align: center;
   }
-  //Action sheet styles
-  .action-sheets-basic-page {
-    .ion-md-share {
-      color: #ED4248;
-    }
 
-    .ion-md-arrow-dropright-circle {
-      color: #508AE4;
-    }
-
-    .ion-md-heart-outline {
-      color: #31D55F;
-    }
-
-    .action-sheet-cancel ion-icon,
-    .action-sheet-destructive ion-icon {
-      color: #757575;
-    }
-  }
 }

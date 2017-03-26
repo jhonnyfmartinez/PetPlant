@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title text-center>
-      PetPlant
-    </ion-title>
-    <br>
     <div text-center>
       <img item-right class="icon-toolbar" src="assets/img/petplanticon.png" class="headerImg">
     </div>
+    <br>
+    <ion-title text-center>
+      PetPlant
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -24,7 +24,7 @@
 			</ion-label>
 			<ion-input type="password" formControlName="pass"></ion-input>
 		</ion-item>
-    <ion-fab center middle style="top: 70%">
+    <ion-fab center middle style="top: 14em">
       <button ion-fab color="primary" [disabled]="!authForm.valid" type="submit">
         <ion-icon name="arrow-round-forward"></ion-icon>
       </button>

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { EmailValidator } from '../../validators/email';
 import { matchingPasswords } from '../../validators/matchingPassword';
 
 import { SignupPetplantPage } from '../signup-petplant/signup-petplant';
+
+import { Auth } from '../../providers/auth.provider';
 
 @Component({
   selector: 'page-signin',
@@ -16,7 +18,8 @@ export class SigninPage {
   regForm:any;
   loading:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder,
+    public auth: Auth, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
     this.regForm = fb.group({
       user: ['',Validators.compose([Validators.required,Validators.minLength(6),Validators.maxLength(20)])],
       pass: ['',Validators.compose([Validators.required,Validators.minLength(6)])],
@@ -31,7 +34,20 @@ export class SigninPage {
   }
 
   onReg(){
-    this.navCtrl.push(SignupPetplantPage,{user:this.regForm.controls.user.value});
+    this.loading = this.loadingCtrl.create({dismissOnPageChange:true});
+    this.loading.present();
+    this.auth.signUp(this.regForm.controls).then(()=>{
+      this.navCtrl.push(SignupPetplantPage,{user:this.regForm.controls.user.value});
+    }).catch(err=>{
+      let alert = this.alertCtrl.create({
+        title: 'Error de registro',
+        subTitle: 'El nombre de usuario que estás ingresando se encuentra registrado',
+        buttons: [{
+          text: 'Ok',
+          role: 'cancel'
+        }]
+      });
+    });
   }
 
 }
