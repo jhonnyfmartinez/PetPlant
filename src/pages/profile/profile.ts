@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+
+import { HomePage } from '../home/home';
+
+import { Auth } from '../../providers/auth.provider';
 
 @Component({
   selector: 'page-profile',
@@ -7,10 +11,37 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  plants:Array<any> = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public auth: Auth, public alertCtrl: AlertController) {
+    this.plants = this.navParams.data;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+  logOut(){
+    let alert = this.alertCtrl.create({
+      title: 'Salir',
+      subTitle: 'Se cerrará su sesión actual',
+      buttons: [
+        {
+          text: 'Salir',
+          handler: () => {
+            this.auth.logOut().then(()=>{
+              this.navCtrl.parent.setRoot(HomePage);
+            });
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

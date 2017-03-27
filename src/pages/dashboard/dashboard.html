@@ -1,16 +1,5 @@
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>PetPlant</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="logOut()">
-        <ion-icon name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
 <ion-tabs (ionChange)="tabChange()" #tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Perfil" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab1Root" [rootParams]="objectLogin" tabTitle="Perfil" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Buscar" tabIcon="search"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Notificaciones" tabIcon="notifications"></ion-tab>
   <ion-tab [root]="tab4Root" tabTitle="Tienda" tabIcon="pricetags"></ion-tab>

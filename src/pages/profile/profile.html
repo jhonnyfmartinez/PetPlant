@@ -2,11 +2,39 @@
 
   <ion-navbar color="primary">
     <ion-title>Perfil</ion-title>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="add" style="font-size:2em"></ion-icon>
+      </button>
+      <button ion-button (click)="logOut()">
+        <ion-icon name="log-out" style="font-size:2em"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-slides pager>
+    <ion-slide *ngFor="let plant of plants" text-center>
+      <ion-avatar text-center>
+        <img [src]="plant.img" class="plant_avatar">
+      </ion-avatar>
+      <h2>{{plant.name}}</h2>
+      <p>{{plant.type}}</p>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="facebook"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab color="twitter"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab color="whatsapp"><ion-icon name="logo-whatsapp"></ion-icon></button>
+      <button ion-fab color="google"><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>

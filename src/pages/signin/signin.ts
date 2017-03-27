@@ -47,6 +47,7 @@ export class SigninPage {
           role: 'cancel'
         }]
       });
+      alert.present();
     });
   }
 

@@ -34,7 +34,7 @@ export class Auth {
         username: values.user.value,
         password: values.pass.value,
         email: values.email.value
-      }
+      };
       this.http.post(api_url+"add_user",reqData).subscribe(res=>{
         if(res.status==200){
           this.nativeStorage.setItem('userKey',res.json());
@@ -43,6 +43,28 @@ export class Auth {
           reject();
         }
       },error=>console.log(error));
+    });
+  }
+
+  createPlan(values,imgData){
+    return new Promise<any>((resolve,reject)=>{
+      this.getUserKey().then(data=>{
+        console.log(data);
+        let reqData = {
+          name: values.name.value,
+          type: values.type.value,
+          gender: values.gender.value,
+          user_ref: data,
+          img: imgData?imgData:undefined
+        };
+        this.http.post(api_url+'add_plant',reqData).subscribe(res=>{
+          if(res.status=200){
+            resolve();
+          }else{
+            reject();
+          }
+        }, err=>console.log(err));
+      });
     });
   }
 
@@ -55,7 +77,13 @@ export class Auth {
   }
 
   getUserKey(){
-    return this.nativeStorage.getItem('userKey');
+    return new Promise<any>((resolve,reject)=>{
+      this.nativeStorage.getItem('userKey').then(data=>{
+        resolve(data);
+      }).catch(err=>{
+        reject(err);
+      });
+    });
   }
 
 }

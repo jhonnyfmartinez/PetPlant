@@ -33,7 +33,7 @@ import { Data } from '../providers/data.provider';
     SettingsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false })
+    IonicModule.forRoot(MyApp)
   ],
 
   bootstrap: [IonicApp],

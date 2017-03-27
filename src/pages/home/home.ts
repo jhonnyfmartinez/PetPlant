@@ -31,10 +31,11 @@ export class HomePage {
     this.loading = this.loadingCtrl.create({ dismissOnPageChange: true });
     this.loading.present();
     this.auth.signIn(this.authForm.controls).then(() => {
-      this.data.get_plants_by_user(this.auth.getUserKey()).then(res=>{
-        this.navCtrl.setRoot(DashboardPage,res);
-      }).catch(()=>this.navCtrl.setRoot(SignupPetplantPage));
-      this.navCtrl.setRoot(DashboardPage);
+      this.auth.getUserKey().then(data=>{
+        this.data.get_plants_by_user(data).then(res=>{
+          res.length>0?this.navCtrl.setRoot(DashboardPage,res):this.navCtrl.setRoot(SignupPetplantPage);
+        }).catch(err=>console.log(err));
+      }).catch(err=>console.log(err));
     }).catch(err => {
       let alert = this.alertCtrl.create({
         title: 'Error de autentificación',
