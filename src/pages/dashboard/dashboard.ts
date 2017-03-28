@@ -30,8 +30,4 @@ export class DashboardPage {
 
   }
 
-  tabChange(){
-    console.log(this.tabRef.getSelected().index);
-  }
-
 }

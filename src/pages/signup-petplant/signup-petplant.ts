@@ -87,8 +87,15 @@ export class SignupPetplantPage {
     };
 
     this.actionSheet.show(options).then((buttonIndex: number) => {
-      let pointer = buttonIndex == 1 ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY;
-      this.pickImage(pointer);
+      var pointer;
+      if(buttonIndex == 1){
+        pointer = this.camera.PictureSourceType.CAMERA;
+        this.pickImage(pointer);
+      }
+      if(buttonIndex == 2){
+        pointer = this.camera.PictureSourceType.PHOTOLIBRARY;
+        this.pickImage(pointer);
+      }
     });
   }
 

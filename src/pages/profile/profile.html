@@ -3,7 +3,7 @@
   <ion-navbar color="primary">
     <ion-title>Perfil</ion-title>
     <ion-buttons end>
-      <button ion-button>
+      <button ion-button (click)="addPlant()">
         <ion-icon name="add" style="font-size:2em"></ion-icon>
       </button>
       <button ion-button (click)="logOut()">
@@ -19,7 +19,7 @@
 
   <ion-slides pager>
     <ion-slide *ngFor="let plant of plants" text-center>
-      <ion-avatar text-center>
+      <ion-avatar text-center (click)="plantSelect()" tappable>
         <img [src]="plant.img" class="plant_avatar">
       </ion-avatar>
       <h2>{{plant.name}}</h2>
@@ -30,10 +30,10 @@
   <ion-fab right bottom>
     <button ion-fab color="primary"><ion-icon name="share"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab color="facebook"><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab color="twitter"><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab color="whatsapp"><ion-icon name="logo-whatsapp"></ion-icon></button>
-      <button ion-fab color="google"><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab color="facebook" (click)="facebookShare()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab color="twitter" (click)="twitterShare()"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab color="whatsapp" (click)="whatsAppShare()"><ion-icon name="logo-whatsapp"></ion-icon></button>
+      <button ion-fab color="instagram" (click)="instagramShare()"><ion-icon name="logo-instagram"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 

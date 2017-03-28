@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { ActionSheet } from '@ionic-native/action-sheet';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { Auth } from '../providers/auth.provider';
 import { Data } from '../providers/data.provider';
@@ -56,6 +57,7 @@ import { Data } from '../providers/data.provider';
     Auth,
     NativeStorage,
     Data,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
