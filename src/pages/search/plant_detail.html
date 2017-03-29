@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{item.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}"></ion-icon>
+  <div padding><p> {{ item.description }}</p> </div>
+  <ion-item> <img [src]="item.image" class="item-image"/> </ion-item>
+  <ion-item> <h2>Cuidados y Recomendaciones</h2> </ion-item>
+   <ion-item>
+     <h3>Humedad</h3>
+  <ion-icon [name]="item.iconCuidado" [ngStyle]="{'color': item.colorHume1}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado" [ngStyle]="{'color': item.colorHume2}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado" [ngStyle]="{'color': item.colorHume3}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado" [ngStyle]="{'color': item.colorHume4}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado" [ngStyle]="{'color': item.colorHume5}"></ion-icon>
+  </ion-item>
+   <ion-item>
+     <h3>Luminosidad</h3>
+  <ion-icon [name]="item.iconCuidado2" [ngStyle]="{'color': item.colorLumi1}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado2" [ngStyle]="{'color': item.colorLumi2}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado2" [ngStyle]="{'color': item.colorLumi3}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado2" [ngStyle]="{'color': item.colorLumi4}"></ion-icon>
+  <ion-icon [name]="item.iconCuidado2" [ngStyle]="{'color': item.colorLumi5}"></ion-icon>
+  </ion-item>
+</ion-content>

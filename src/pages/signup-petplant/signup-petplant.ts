@@ -23,15 +23,12 @@ export class SignupPetplantPage {
   textTakephoto = "Tomale una foto a tu planta";
 
   public base64ImagePlanta: string;
-  username: string;
 
   plantForm;
 
   constructor(private params: NavParams, private navCtrl: NavController,
     public camera: Camera, public fb: FormBuilder, private actionSheet: ActionSheet,
     public auth: Auth, public data: Data, public loadingCtrl: LoadingController) {
-
-    this.username = params.data.user;
 
     this.plantForm = fb.group({
       name: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
@@ -48,8 +45,7 @@ export class SignupPetplantPage {
       .then(()=>{
         this.auth.getUserKey().then(data=>{
           this.data.get_plants_by_user(data).then(res=>{
-            console.log(res);
-            this.navCtrl.setRoot(DashboardPage,res);
+            this.navCtrl.setRoot(DashboardPage);
           }).catch(err=>console.log(err));
         });
       }).catch(err=>console.log(err));

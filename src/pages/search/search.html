@@ -7,5 +7,11 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-left>
+      <ion-icon [name]="item.icon" [ngStyle]="{'color': item.color}" item-left></ion-icon>
+      {{ item.title }}
+    </ion-item>
+  </ion-list>
 </ion-content>

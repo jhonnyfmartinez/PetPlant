@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { EmailValidator } from '../../validators/email';
 import { matchingPasswords } from '../../validators/matchingPassword';
 
-import { SignupPetplantPage } from '../signup-petplant/signup-petplant';
+import { InformationPage } from '../information/information';
 
 import { Auth } from '../../providers/auth.provider';
 
@@ -37,7 +37,7 @@ export class SigninPage {
     this.loading = this.loadingCtrl.create({dismissOnPageChange:true});
     this.loading.present();
     this.auth.signUp(this.regForm.controls).then(()=>{
-      this.navCtrl.setRoot(SignupPetplantPage,{user:this.regForm.controls.user.value});
+      this.navCtrl.setRoot(InformationPage);
     }).catch(err=>{
       let alert = this.alertCtrl.create({
         title: 'Error de registro',

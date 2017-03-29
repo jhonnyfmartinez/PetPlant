@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { SigninPage } from '../signin/signin';
 import { DashboardPage } from '../dashboard/dashboard';
-import { SignupPetplantPage } from '../signup-petplant/signup-petplant';
+import { InformationPage } from '../information/information';
 
 import { Auth } from '../../providers/auth.provider';
 import { Data } from '../../providers/data.provider';
@@ -33,7 +33,7 @@ export class HomePage {
     this.auth.signIn(this.authForm.controls).then(() => {
       this.auth.getUserKey().then(data=>{
         this.data.get_plants_by_user(data).then(res=>{
-          res.length>0?this.navCtrl.setRoot(DashboardPage,res):this.navCtrl.setRoot(SignupPetplantPage);
+          res.length>0?this.navCtrl.setRoot(DashboardPage,res):this.navCtrl.setRoot(InformationPage);
         }).catch(err=>console.log(err));
       }).catch(err=>console.log(err));
     }).catch(err => {
