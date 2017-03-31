@@ -18,6 +18,7 @@ import { Camera } from '@ionic-native/camera';
 import { ActionSheet } from '@ionic-native/action-sheet';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
 import { Auth } from '../providers/auth.provider';
 import { Data } from '../providers/data.provider';
@@ -63,6 +64,7 @@ import { Data } from '../providers/data.provider';
     NativeStorage,
     Data,
     SocialSharing,
+    BluetoothSerial,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

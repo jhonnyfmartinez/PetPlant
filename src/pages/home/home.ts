@@ -27,7 +27,7 @@ export class HomePage {
     });
   }
 
-  onLogin(valid) {
+  onLogin() {
     this.loading = this.loadingCtrl.create({ dismissOnPageChange: true });
     this.loading.present();
     this.auth.signIn(this.authForm.controls).then(() => {

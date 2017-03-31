@@ -1,12 +1,63 @@
+
 <ion-header>
 
   <ion-navbar color="primary">
     <ion-title>Notificaciones</ion-title>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-spinner name="crescent" class="custom_spinner" [style.display]="btAttempt" style="color:#fff"></ion-spinner>
+      </button>
+      <button ion-button *ngIf="!isConnected && btAttempt=='none'" (click)="connectBT()">
+        <i class="material-icons">bluetooth</i>
+      </button>
+      <button ion-button *ngIf="isConnected && btAttempt=='none'" (click)="disconnectBT()">
+        <i class="material-icons">bluetooth_disabled</i>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="refreshData($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-round-down"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando datos...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <br>
+  <div text-center>
+    <h4 *ngIf="isConnected">Arrastra para actualizar &nbsp;&nbsp;<ion-icon name="arrow-round-down" color="primary"></ion-icon></h4>
+  </div>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <ion-avatar>
+          <img src="assets/img/humedad-noti.png" class="humedad-image" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-6 offset-1 class="luminosidad">
+          <h4 style="color:#387ef5;"><b>Humedad: {{humedad}}</b></h4>
+          <div><p>Porcentaje de <br/>Humedad: <b>{{dataHum}}%</b></p></div>
+          <p style="color:red"><b>{{MensajeAlertaHumedad}}</b></p>
+      </ion-col>
+    </ion-row>
 
+    <br>
+
+    <ion-row>
+      <ion-col col-5>
+        <ion-avatar>
+          <img src="assets/img/temperatura-noti.png" class="temperatura-image" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-6 offset-1 class="luminosidad">
+          <h4 style="color:#387ef5;"><b>Temperatura: {{temperatura}}</b></h4>
+          <div><p>Nivel de <br/>Temperatura: <b>{{dataTemp}}°C</b></p></div>
+          <p style="color:red"><b>{{MensajeAlerta}}</b></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
