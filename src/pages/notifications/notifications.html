@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
@@ -17,7 +16,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <ion-refresher (ionRefresh)="refreshData($event)">
     <ion-refresher-content
@@ -28,7 +26,7 @@
   </ion-refresher>
   <br>
   <div text-center>
-    <h4 *ngIf="isConnected">Arrastra para actualizar &nbsp;&nbsp;<ion-icon name="arrow-round-down" color="primary"></ion-icon></h4>
+    <h4 *ngIf="isConnected">Deliza para actualizar &nbsp;&nbsp;<ion-icon name="arrow-round-down" color="primary"></ion-icon></h4>
   </div>
   <br>
   <ion-grid>

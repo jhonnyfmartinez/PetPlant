@@ -45,7 +45,7 @@ export class SignupPetplantPage {
       .then(()=>{
         this.auth.getUserKey().then(data=>{
           this.data.get_plants_by_user(data).then(res=>{
-            this.navCtrl.setRoot(DashboardPage);
+            this.navCtrl.setRoot(DashboardPage,res);
           }).catch(err=>console.log(err));
         });
       }).catch(err=>console.log(err));
@@ -81,7 +81,6 @@ export class SignupPetplantPage {
       addCancelButtonWithLabel: 'Cancelar',
       androidTheme: this.actionSheet.ANDROID_THEMES.THEME_HOLO_LIGHT
     };
-
     this.actionSheet.show(options).then((buttonIndex: number) => {
       var pointer;
       if(buttonIndex == 1){
